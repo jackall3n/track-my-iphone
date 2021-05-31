@@ -78,7 +78,7 @@ server.listen(process.env.PORT || 3030, '0.0.0.0', (error, address) => {
     } catch (e) {
       console.error(e);
     }
-  }, 10000);
+  }, 5000);
 
 })();
 
