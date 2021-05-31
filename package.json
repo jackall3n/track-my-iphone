@@ -4,20 +4,21 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node src/track"
+    "start": "ts-node src/track",
+    "start:prod": "node dist/track",
+    "build": "tsc"
   },
-  "dependencies": {
-    "@types/axios": "^0.14.0",
+  "devDependencies": {
     "@types/request": "^2.48.5",
     "@types/request-promise": "^4.1.47",
-    "axios": "^0.21.1",
-    "dotenv-flow": "^3.2.0",
-    "fastify": "^3.17.0",
-    "find-my-iphone": "^1.1.2",
-    "firebase-admin": "^9.9.0",
-    "request": "^2.88.2",
-    "request-promise": "^4.2.6",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "dotenv-flow": "^3.2.0",
+    "fastify": "^3.17.0",
+    "firebase-admin": "^9.9.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
   }
 }
