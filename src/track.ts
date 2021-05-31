@@ -27,7 +27,7 @@ server.get('/', (request, reply) => {
   return last_location
 });
 
-server.listen(process.env.PORT || 3030, (error, address) => {
+server.listen(process.env.PORT || 3030, '0.0.0.0', (error, address) => {
   if (error) {
     throw error;
   }
