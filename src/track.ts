@@ -46,6 +46,8 @@ server.listen(process.env.PORT || 3030, '0.0.0.0', (error, address) => {
 
       location = device.location;
 
+      location.map = `https://maps.google.com/?q=${location.latitude},${location.longitude}`;
+
     } catch (e) {
       console.error(e);
       await find.init();
