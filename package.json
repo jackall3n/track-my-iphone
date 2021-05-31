@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "ts-node src/track"
+  },
   "dependencies": {
     "@types/axios": "^0.14.0",
     "@types/request": "^2.48.5",
@@ -13,6 +16,7 @@
     "firebase-admin": "^9.9.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
+    "ts-node": "^10.0.0",
     "typescript": "^4.3.2"
   }
 }
