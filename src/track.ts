@@ -1,6 +1,7 @@
 import 'dotenv-flow/config';
 import firebase from 'firebase-admin';
 import FindMyiPhone from './find-my-iphone';
+import fastify from "fastify";
 
 import credentials from "./creds";
 
@@ -15,6 +16,24 @@ const app = firebase.initializeApp({
 })
 
 const find = new FindMyiPhone(credentials.email, credentials.password);
+
+let last_location: any;
+
+const server = fastify({ logger: true });
+
+server.get('/', (request, reply) => {
+  reply.type('application/json').status(200)
+
+  return last_location
+});
+
+server.listen(process.env.PORT || 3030, (error, address) => {
+  if (error) {
+    throw error;
+  }
+
+  console.log(address);
+});
 
 (async () => {
   await find.init();
@@ -37,6 +56,7 @@ const find = new FindMyiPhone(credentials.email, credentials.password);
       console.log(`Your iPhone is here: ${location.latitude},${location.longitude}`, location);
       const ref = app.firestore().collection('locations').doc(String(location.timeStamp));
       await ref.set(location);
+      last_location = location;
     } else {
       console.log('no location found');
     }
