@@ -19,7 +19,6 @@ WORKDIR /usr/src/app
 
 COPY --from=build /usr/src/app/package.json .
 COPY --from=build /usr/src/app/yarn.lock .
-COPY --from=build /usr/src/app/.env.local .
 COPY --from=build /usr/src/app/dist ./dist
 
 RUN yarn --production
